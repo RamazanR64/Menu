@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ menu_item.title }}</title>
+</head>
+<body>
+    <h1>{{ menu_item.title }}</h1>
+    {% if menu_item.children.exists %}
+        <ul>
+            {% for child in menu_item.children.all %}
+                <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
